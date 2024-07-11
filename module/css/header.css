@@ -1,0 +1,66 @@
+header{
+    padding: 0px;
+}
+/* Style the navigation bar */
+.navbar {
+    width: 100%;
+    min-height: 40px;
+    background-color: #33333350;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: .5px solid #ffffff30;
+    border-bottom-color: aliceblue;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent; */
+}
+
+/* the nav bar in replacement like the full_bar.*/
+.nav_bar_bottom{
+    width: 100%;
+    height: calc(1px);
+    background-color: #ffffff80;
+    box-shadow: 0px 0px 3px gray;
+}
+
+.navbar .right,
+.navbar .left{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Navbar links */
+.navbar a {
+    display: flex;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+    box-shadow: inset 0px 0px 3px white;
+    background-color: #ffffff30;
+}
+
+.profile-name{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 420px) {
+    .navbar a {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .profile-name{
+        display: none;
+    }
+}

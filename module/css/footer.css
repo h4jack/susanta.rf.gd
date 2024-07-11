@@ -1,0 +1,170 @@
+/* Footer Styles */
+.footer {
+    background-color: #333338;
+    padding: 20px;
+    text-align: center;
+    color: #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
+    justify-content: space-around;
+    align-items: start;
+}
+
+.footer a:visited {
+    color: #CCCCCC;
+}
+
+.footer a:active {
+    color: #FFFF00;
+}
+
+.footer a {
+    color: #CCCCCC;
+    padding-left: 5px;
+    /* Light gray text on dark background */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #FFFFFF;
+}
+
+.follow-us {
+    margin-bottom: 20px;
+}
+
+/* 
+.follow-us a:hover{
+    text-decoration: none;
+} */
+
+.footer-navigation {
+    max-width: 600px;
+    padding: 10px;
+}
+
+
+.footer-navigation a {
+    color: #CCCCCC;
+    text-decoration: underline;
+    /* Light gray text on dark background */
+}
+
+.copyright {
+    font-size: 14px;
+    margin: 5px;
+    align-self: flex-end;
+}
+
+
+
+.more_link_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+.more_link_left,
+.more_link_right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.more_link_top,
+.more_link_bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer_none {
+    border: 3px solid white;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: #CCCCCC;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
+
+@media (max-width: 400px) {
+
+    .more_link_left,
+    .more_link_right {
+        flex-direction: row;
+    }
+
+    .more_link_top {
+        width: 50%;
+        align-items: start;
+        justify-content: row;
+    }
+
+    .more_link_bottom {
+        width: 50%;
+        align-items: start;
+        justify-content: row;
+    }
+
+    .more_link_box {
+        flex-direction: column;
+    }
+}
+
+.social-icon {
+    display: inline-block;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    background-repeat: no-repeat;
+    background-size: contain; /* T  his will make the icons fit perfectly */
+}
+
+/* Set the background images for each icon */
+.github-icon {
+    background-image: url('/assets/icons/github-dark.png');
+}
+
+.linkedin-icon {
+    background-image: url('/assets/icons/linkedin-dark.png');
+}
+
+.instagram-icon {
+    background-image: url('/assets/icons/instagram-dark.png');
+}
+
+.twitter-icon {
+    background-image: url('/assets/icons/twitter-dark.png');
+}
+
+.github-icon:hover {
+    background-image: url('/assets/icons/github-light.png');
+}
+
+.linkedin-icon:hover {
+    background-image: url('/assets/icons/linkedin-light.png');
+}
+
+.instagram-icon:hover {
+    background-image: url('/assets/icons/instagram-light.png');
+}
+
+.twitter-icon:hover {
+    background-image: url('/assets/icons/twitter-light.png');
+}
+
+.social-icon:hover {
+    /* background-color: white; */
+    filter: drop-shadow(0px 0px 10px white);
+    /* box-shadow: 0px 0px 10px white; */
+}

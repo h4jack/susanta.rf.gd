@@ -1,0 +1,89 @@
+/* include the font */
+@font-face {
+    font-family: 'Rubik';
+    src: url('/assets/font/Rubik-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('/assets/font/Rubik-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    color: #ddd;
+    box-sizing: border-box;
+    /* font-family: "Helvetica Neue", Arial, sans-serif;     */
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #1A1A1A;
+    /* Additional styles for body text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Example usage for headings */
+h1, h2, h3 {
+    font-family: 'Rubik', sans-serif;
+    /* Additional styles for headings */
+}
+
+p{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* the full bar in replacement of hr tag.*/
+.full_bar{
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff80;
+    border: 1px solid #ffffff30;
+    border-radius: 100%;
+    box-shadow: 0px 0px 3px gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Main Content Area Styles */
+main {
+    display: flex;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.page-content {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1; /* Takes less space */
+    margin-left: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+}
+@media (max-width: 270px) {
+    body {
+        display: none;
+    }
+}
+
