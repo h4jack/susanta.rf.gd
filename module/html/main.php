@@ -60,7 +60,7 @@ function print_footer()
             <a href=\"http://github.com/h4jack\" target=\"_blank\" rel=\"noopener noreferrer\">
                 <span class=\"social-icon github-icon\"></span>
             </a>
-            <a href=\"#linkedin\" target=\"_blank\" rel=\"noopener noreferrer\">
+            <a href=\"https://www.linkedin.com/in/susantamandi/\" target=\"_blank\" rel=\"noopener noreferrer\">
                 <span class=\"social-icon linkedin-icon\"></span>
             </a>
             <a href=\"#twitter\" target=\"_blank\" rel=\"noopener noreferrer\">
