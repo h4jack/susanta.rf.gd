@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            width: 100%;
+        }
+
+        main {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            text-align: justify;
+            background-color: #131538;
+            height: 100%;
+            border: 0px;
+            border-radius: 5px;
+        }
+
+        .toolbar {
+            display: flex;
+            padding: 5px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .tbar-bottom,
+        .tbar-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .big-tool-dropdown,
+        .post,
+        .ticon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 30px;
+            margin: 5px;
+            padding: 0px;
+            text-align: center;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        .post {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* General styling for the dropdown container */
+        .big-tool-dropdown {
+            display: inline-block;
+            position: relative;
+            width: auto;
+            cursor: pointer;
+            /* Adding cursor style to indicate interactivity */
+        }
+
+        /* Styling for the top part of the dropdown */
+        .dropdown-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ccc;
+            width: auto;
+            height: 100%;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Change background color on hover for dropdown top */
+        .dropdown-top:hover {
+            background-color: #eaeaea;
+        }
+
+        /* Styling for the dropdown content */
+        .dropdown-bottom {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 150%;
+            overflow-y: auto;
+            background-color: cadetblue;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            z-index: 10;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-bottom p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 100%;
+            margin: 0px;
+            text-align: center;
+        }
+
+        .dropdown-bottom p:hover {
+            background-color: #00000060;
+        }
+
+        .content {
+            height: 100%;
+        }
+
+        .varticle-bar {
+            width: 2px;
+            height: 90%;
+            background-color: white;
+            box-shadow: 0px 0px 3px white;
+            border-radius: 1px;
+        }
+
+        .svg-icon {
+            height: 70%;
+            width: auto;
+            color: white;
+        }
+
+        .drop-down {
+            height: 40%;
+            width: 40%;
+        }
+
+        .select-font,
+        .select-text-type {
+            padding: 0px 5px;
+            font-size: 13px;
+        }
+
+        .dropdown-bottom{
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="toolbar">
+            <div class="tbar-top">
+                <div class="ticon undo">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="m5.042 9.367 2.189 1.837a.75.75 0 0 1-.965 1.149l-3.788-3.18a.747.747 0 0 1-.21-.284.75.75 0 0 1 .17-.945L6.23 4.762a.75.75 0 1 1 .964 1.15L4.863 7.866h8.917A.75.75 0 0 1 14 7.9a4 4 0 1 1-1.477 7.718l.344-1.489a2.5 2.5 0 1 0 1.094-4.73l.008-.032H5.042z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon redo">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="m14.958 9.367-2.189 1.837a.75.75 0 0 0 .965 1.149l3.788-3.18a.747.747 0 0 0 .21-.284.75.75 0 0 0-.17-.945L13.77 4.762a.75.75 0 1 0-.964 1.15l2.331 1.955H6.22A.75.75 0 0 0 6 7.9a4 4 0 1 0 1.477 7.718l-.344-1.489A2.5 2.5 0 1 1 6.039 9.4l-.008-.032h8.927z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon pdf-export">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M19 4.5 14 0H3v6.5h1.5v-5h8v5h5V11H19V4.5ZM14 2l3.3 3H14V2Z"></path>
+                        <path d="m12.452 18.5 1.25 1.5H3v-3h1.5v1.5h7.952Z"></path>
+                        <path
+                            d="M19.826 16.843a.75.75 0 1 0-1.152-.96L17.5 17.29V13H16v4.29l-1.174-1.408a.75.75 0 1 0-1.152.96l2.346 2.816a.95.95 0 0 0 1.46 0l2.346-2.815Z">
+                        </path>
+                        <path
+                            d="M1.63 14.24V12.3h.88c.66 0 1.14-.15 1.46-.45.32-.3.48-.71.48-1.24 0-.52-.15-.91-.44-1.2C3.7 9.15 3.28 9 2.69 9H0v5.24h1.63Zm.4-3h-.4v-1.17h.46c.3 0 .5.05.62.17.1.11.16.25.16.42 0 .16-.06.3-.19.41-.13.11-.34.16-.66.16l.01.01Zm5.7 3c.28 0 .6-.05.96-.14.26-.07.5-.21.73-.42.22-.2.4-.47.53-.77.12-.31.19-.75.19-1.3 0-.37-.04-.7-.13-1.02a2.3 2.3 0 0 0-.42-.84c-.19-.24-.43-.43-.72-.56C8.57 9.06 8.2 9 7.72 9h-2.4v5.24H7.73Zm-.4-1.19h-.4v-2.86h.4c.43 0 .73.1.91.3.18.2.27.59.27 1.14 0 .42-.04.73-.12.91a.76.76 0 0 1-.34.4c-.14.07-.38.11-.72.11Zm5.3 1.2V12.1h2.02v-1.06h-2.03v-.91H15V9h-4v5.24h1.62l.01.01Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon img-import">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h9.494a2.97 2.97 0 0 1-.414-.287 2.998 2.998 0 0 1-1.055-2.03 3.003 3.003 0 0 1 .693-2.185l.383-.455-.02.018-3.65-3.41a.695.695 0 0 0-.957-.034L1.5 13.6V2.5h15v5.535a2.97 2.97 0 0 1 1.412.932l.088.105V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.146 2.146 0 0 0-2.049 1.992 2.14 2.14 0 0 0 1.28 2.096 2.13 2.13 0 0 0 2.644-3.11 2.134 2.134 0 0 0-1.875-.978Z">
+                        </path>
+                        <path
+                            d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z">
+                        </path>
+                        <path
+                            d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon vid-import">
+                    <svg class="svg-icon" viewBox="0 0 22 20">
+                        <path
+                            d="M1.587 1.5c-.612 0-.601-.029-.601.551v14.84c0 .59-.01.559.591.559h18.846c.602 0 .591.03.591-.56V2.052c0-.58.01-.55-.591-.55H1.587Zm.701.971h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-14.24 1h13.008v12H4.467l.029-12Zm-2.208 1h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003l-.029 1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h.974v1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Z">
+                        </path>
+                        <path
+                            d="M8.374 6.648a.399.399 0 0 1 .395-.4.402.402 0 0 1 .2.049l5.148 2.824a.4.4 0 0 1 0 .7l-5.148 2.824a.403.403 0 0 1-.595-.35V6.648Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon change-case">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M5.789 3 0 17h1.664l1.664-4.027h6.797l.227.548c.046-.172.112-.352.209-.545.217-.436.556-.609.898-.798L7.664 3H5.79Zm.938 1.758 2.777 6.715H3.949l2.778-6.715Z">
+                        </path>
+                        <path
+                            d="M15.956 7.5c-1.584-.02-3.226.824-3.843 2.882l1.495.106c.904-2.082 4.594-2.13 4.375.534-3.245 1.024-4.838.117-6.082 2.62-.208.418-.17 1.57.54 2.397.71.826 2.014 1.149 3.409.85 1.395-.299 2.24-1.386 2.24-1.386L18.205 17h1.493l-.059-1.72-.056-5.274C19.51 8.612 17.75 7.524 15.956 7.5Zm2.027 4.696s.641 2.453-1.528 3.27c-3.376 1.269-4.188-2.141-1.775-2.638 1.704-.352 1.873-.25 3.303-.632Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon find">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="m12.87 13.786 1.532-1.286 3.857 4.596a1 1 0 1 1-1.532 1.286l-3.857-4.596z"></path>
+                        <path
+                            d="M16.004 8.5a6.5 6.5 0 0 1-9.216 5.905c-1.154-.53-.863-1.415-.663-1.615.194-.194.564-.592 1.635-.141a4.5 4.5 0 0 0 5.89-5.904l-.104-.227 1.332-1.331c.045-.046.196-.041.224.007a6.47 6.47 0 0 1 .902 3.306zm-3.4-5.715c.562.305.742 1.106.354 1.494-.388.388-.995.414-1.476.178a4.5 4.5 0 0 0-6.086 5.882l.114.236-1.348 1.349c-.038.037-.17.022-.198-.023a6.5 6.5 0 0 1 5.54-9.9 6.469 6.469 0 0 1 3.1.784z">
+                        </path>
+                        <path
+                            d="M4.001 11.93.948 8.877a.2.2 0 0 1 .141-.341h6.106a.2.2 0 0 1 .141.341L4.283 11.93a.2.2 0 0 1-.282 0zm11.083-6.789 3.053 3.053a.2.2 0 0 1-.14.342H11.89a.2.2 0 0 1-.14-.342l3.052-3.053a.2.2 0 0 1 .282 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon select-all">
+                    <svg width="24" height="24" focusable="false">
+                        <path
+                            d="M3 5h2V3a2 2 0 0 0-2 2Zm0 8h2v-2H3v2Zm4 8h2v-2H7v2ZM3 9h2V7H3v2Zm10-6h-2v2h2V3Zm6 0v2h2a2 2 0 0 0-2-2ZM5 21v-2H3c0 1.1.9 2 2 2Zm-2-4h2v-2H3v2ZM9 3H7v2h2V3Zm2 18h2v-2h-2v2Zm8-8h2v-2h-2v2Zm0 8a2 2 0 0 0 2-2h-2v2Zm0-12h2V7h-2v2Zm0 8h2v-2h-2v2Zm-4 4h2v-2h-2v2Zm0-16h2V3h-2v2ZM7 17h10V7H7v10Zm2-8h6v6H9V9Z"
+                            fill-rule="nonzero"></path>
+                    </svg>
+                </div>
+                <div class="ticon copy">
+                    <svg width="24" height="24" focusable="false">
+                        <path
+                            d="M16 3H6a2 2 0 0 0-2 2v11h2V5h10V3Zm1 4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9c0-1.2.9-2 2-2h7Zm0 12V9h-7v10h7Z"
+                            fill-rule="nonzero"></path>
+                    </svg>
+                </div>
+                <div class="ticon paste">
+                    <svg width="24" height="24" focusable="false">
+                        <path
+                            d="M18 9V5h-2v1c0 .6-.4 1-1 1H9a1 1 0 0 1-1-1V5H6v13h3V9h9ZM9 20H6a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.2A3 3 0 0 1 12 1a3 3 0 0 1 2.8 2H18a2 2 0 0 1 2 2v4h1v12H9v-1Zm1.5-9.5v9h9v-9h-9ZM12 3a1 1 0 0 0-1 1c0 .5.4 1 1 1s1-.5 1-1-.4-1-1-1Z"
+                            fill-rule="nonzero"></path>
+                    </svg>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon select-template">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path clip-rule="evenodd"
+                            d="M8 0H3a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM2.5 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V2Z">
+                        </path>
+                        <path clip-rule="evenodd"
+                            d="M13 0h5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-5Z">
+                        </path>
+                        <path clip-rule="evenodd"
+                            d="M13 10h5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5h-5Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon table-content">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M3 19a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8.022a6.47 6.47 0 0 0-1.5-.709V2a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h6.313c.173.534.412 1.037.709 1.5H3Z">
+                        </path>
+                        <path d="M9.174 14a6.489 6.489 0 0 0-.155 1H6v-1h3.174Z"></path>
+                        <path d="M10.022 12c-.202.316-.378.65-.524 1H4v-1h6.022Z"></path>
+                        <path d="M12.034 10c-.448.283-.86.62-1.224 1H6v-1h6.034Z"></path>
+                        <path d="M12 4v1H4V4h8Z"></path>
+                        <path d="M14 7V6H6v1h8Z"></path>
+                        <path d="M15 9V8H7v1h8Z"></path>
+                        <path clip-rule="evenodd"
+                            d="M20 15.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM15.5 13a.5.5 0 0 0-.5.5V15h-1.5a.5.5 0 0 0 0 1H15v1.5a.5.5 0 0 0 1 0V16h1.5a.5.5 0 0 0 0-1H16v-1.5a.5.5 0 0 0-.5-.5Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon insert-table">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon highlight-text"></div>
+                <div class="ticon insert-link">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="m11.077 15 .991-1.416a.75.75 0 1 1 1.229.86l-1.148 1.64a.748.748 0 0 1-.217.206 5.251 5.251 0 0 1-8.503-5.955.741.741 0 0 1 .12-.274l1.147-1.639a.75.75 0 1 1 1.228.86L4.933 10.7l.006.003a3.75 3.75 0 0 0 6.132 4.294l.006.004zm5.494-5.335a.748.748 0 0 1-.12.274l-1.147 1.639a.75.75 0 1 1-1.228-.86l.86-1.23a3.75 3.75 0 0 0-6.144-4.301l-.86 1.229a.75.75 0 0 1-1.229-.86l1.148-1.64a.748.748 0 0 1 .217-.206 5.251 5.251 0 0 1 8.503 5.955zm-4.563-2.532a.75.75 0 0 1 .184 1.045l-3.155 4.505a.75.75 0 1 1-1.229-.86l3.155-4.506a.75.75 0 0 1 1.045-.184z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon blockquote">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon insert-br">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M3.598.687h1.5v5h-1.5zm14.5 0h1.5v5h-1.5z"></path>
+                        <path d="M19.598 4.187v1.5h-16v-1.5zm-16 14.569h1.5v-5h-1.5zm14.5 0h1.5v-5h-1.5z"></path>
+                        <path d="M19.598 15.256v-1.5h-16v1.5zM5.081 9h6v2h-6zm8 0h6v2h-6zm-9.483 1L0 12.5v-5z"></path>
+                    </svg>
+                </div>
+                <div class="ticon insert-hr">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M2 9h16v2H2z"></path>
+                    </svg>
+                </div>
+                <div class="ticon insert-special-char">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2.5a7.47 7.47 0 0 1 4.231 1.31 7.268 7.268 0 0 1 2.703 3.454 7.128 7.128 0 0 1 .199 4.353c-.39 1.436-1.475 2.72-2.633 3.677h2.013c0-.226.092-.443.254-.603a.876.876 0 0 1 1.229 0c.163.16.254.377.254.603v.853c0 .209-.078.41-.22.567a.873.873 0 0 1-.547.28l-.101.006h-4.695a.517.517 0 0 1-.516-.518v-1.265c0-.21.128-.398.317-.489a5.601 5.601 0 0 0 2.492-2.371 5.459 5.459 0 0 0 .552-3.693 5.53 5.53 0 0 0-1.955-3.2A5.71 5.71 0 0 0 10 4.206 5.708 5.708 0 0 0 6.419 5.46 5.527 5.527 0 0 0 4.46 8.663a5.457 5.457 0 0 0 .554 3.695 5.6 5.6 0 0 0 2.497 2.37.55.55 0 0 1 .317.49v1.264c0 .286-.23.518-.516.518H2.618a.877.877 0 0 1-.614-.25.845.845 0 0 1-.254-.603v-.853c0-.226.091-.443.254-.603a.876.876 0 0 1 1.228 0c.163.16.255.377.255.603h1.925c-1.158-.958-2.155-2.241-2.545-3.678a7.128 7.128 0 0 1 .199-4.352 7.268 7.268 0 0 1 2.703-3.455A7.475 7.475 0 0 1 10 2.5z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon insert-code">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M12.87 12.61a.75.75 0 0 1-.089.976l-.085.07-3.154 2.254 3.412 2.414a.75.75 0 0 1 .237.95l-.057.095a.75.75 0 0 1-.95.237l-.096-.058-4.272-3.022-.003-1.223 4.01-2.867a.75.75 0 0 1 1.047.174zm2.795-.231.095.057 4.011 2.867-.003 1.223-4.272 3.022-.095.058a.75.75 0 0 1-.88-.151l-.07-.086-.058-.095a.75.75 0 0 1 .15-.88l.087-.07 3.412-2.414-3.154-2.253-.085-.071a.75.75 0 0 1 .862-1.207zM16 0a2 2 0 0 1 2 2v9.354l-.663-.492-.837-.001V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h3.118L7.156 19H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14zM5.009 15l.003 1H3v-1h2.009zm2.188-2-1.471 1H5v-1h2.197zM10 11v.095L8.668 12H7v-1h3zm4-2v1H7V9h7zm0-2v1H7V7h7zm-4-2v1H5V5h5zM6 3v1H3V3h3z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon see-html"></div>
+                <div class="ticon see-markdown"></div>
+            </div>
+            <div class="tbar-bottom">
+                <div id="select-text-type" class="big-tool-dropdown">
+                    <div class="dropdown-top">
+                        <p class="select-text-type">Paragraph</p>
+                        <svg class="svg-icon drop-down" viewBox="0 0 10 10">
+                            <path
+                                d="M.941 4.523a.75.75 0 1 1 1.06-1.06l3.006 3.005 3.005-3.005a.75.75 0 1 1 1.06 1.06l-3.549 3.55a.75.75 0 0 1-1.168-.136L.941 4.523z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="text-type-list" class="dropdown-bottom">
+                        <p style="font-size: 18px; font-weight: bold;">Heading 1</p>
+                        <p style="font-size: 16px; font-weight: bold;">Heading 2</p>
+                        <p style="font-size: 14px; font-weight: bold;">Heading 3</p>
+                        <p style="font-size: 12px; font-weight: bold;">Heading 4</p>
+                        <p style="font-size: 11px; font-weight: bold;">Heading 5</p>
+                        <p style="font-size: 10px; font-weight: bold;">Heading 6</p>
+                        <p>Paragraph</p>
+                        <p>Preformat</p>
+                    </div>
+                </div>
+                <div id="select-font" class="big-tool-dropdown">
+                    <div class="dropdown-top">
+                        <p class="select-font">Monospace</p>
+                        <svg class="svg-icon drop-down" viewBox="0 0 10 10">
+                            <path
+                                d="M.941 4.523a.75.75 0 1 1 1.06-1.06l3.006 3.005 3.005-3.005a.75.75 0 1 1 1.06 1.06l-3.549 3.55a.75.75 0 0 1-1.168-.136L.941 4.523z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="font-list" class="dropdown-bottom">
+                        <p>Font 1</p>
+                        <p>Font 2</p>
+                        <p>Font 3</p>
+                        <p>Font 4</p>
+                        <p>Font 5</p>
+                        <p>Font 6</p>
+                        <p>Font 7</p>
+                        <p>Font 8</p>
+                        <p>Font 9</p>
+                        <p>Font 10</p>
+                        <p>Font 11</p>
+                    </div>
+                </div>
+                <div class="varticle-bar"></div>
+                <div class="ticon bold">
+                    <svg class="svg-icon bold-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon italic">
+                    <svg class="svg-icon italic-icon" viewBox="0 0 20 20">
+                        <path
+                            d="m9.586 14.633.021.004c-.036.335.095.655.393.962.082.083.173.15.274.201h1.474a.6.6 0 1 1 0 1.2H5.304a.6.6 0 0 1 0-1.2h1.15c.474-.07.809-.182 1.005-.334.157-.122.291-.32.404-.597l2.416-9.55a1.053 1.053 0 0 0-.281-.823 1.12 1.12 0 0 0-.442-.296H8.15a.6.6 0 0 1 0-1.2h6.443a.6.6 0 1 1 0 1.2h-1.195c-.376.056-.65.155-.823.296-.215.175-.423.439-.623.79l-2.366 9.347z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon underline">
+                    <svg class="svg-icon underline-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M3 18v-1.5h14V18zm2.2-8V3.6c0-.4.4-.6.8-.6.3 0 .7.2.7.6v6.2c0 2 1.3 2.8 3.2 2.8 1.9 0 3.4-.9 3.4-2.9V3.6c0-.3.4-.5.8-.5.3 0 .7.2.7.5V10c0 2.7-2.2 4-4.9 4-2.6 0-4.7-1.2-4.7-4z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon strik">
+                    <svg class="svg-icon strike-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M7 16.4c-.8-.4-1.5-.9-2.2-1.5a.6.6 0 0 1-.2-.5l.3-.6h1c1 1.2 2.1 1.7 3.7 1.7 1 0 1.8-.3 2.3-.6.6-.4.6-1.2.6-1.3.2-1.2-.9-2.1-.9-2.1h2.1c.3.7.4 1.2.4 1.7v.8l-.6 1.2c-.6.8-1.1 1-1.6 1.2a6 6 0 0 1-2.4.6c-1 0-1.8-.3-2.5-.6zM6.8 9 6 8.3c-.4-.5-.5-.8-.5-1.6 0-.7.1-1.3.5-1.8.4-.6 1-1 1.6-1.3a6.3 6.3 0 0 1 4.7 0 4 4 0 0 1 1.7 1l.3.7c0 .1.2.4-.2.7-.4.2-.9.1-1 0a3 3 0 0 0-1.2-1c-.4-.2-1-.3-2-.4-.7 0-1.4.2-2 .6-.8.6-1 .8-1 1.5 0 .8.5 1 1.2 1.5.6.4 1.1.7 1.9 1H6.8z">
+                        </path>
+                        <path d="M3 10.5V9h14v1.5z"></path>
+                    </svg>
+                </div>
+                <div id="font-size" class="big-tool-dropdown">
+                    <div class="dropdown-top">
+                        <svg class="svg-icon" viewBox="0 0 20 20">
+                            <path
+                                d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13zm7.55 2.279.779-.779.707.707-2.265 2.265-2.193-2.265.707-.707.765.765V4.825c0-.042 0-.083.002-.123l-.77.77-.707-.707L17.207 2.5l2.265 2.265-.707.707-.782-.782c.002.043.003.089.003.135v10.454z">
+                            </path>
+                        </svg>
+                        <svg class="svg-icon drop-down"
+                            viewBox="0 0 10 10">
+                            <path
+                                d="M.941 4.523a.75.75 0 1 1 1.06-1.06l3.006 3.005 3.005-3.005a.75.75 0 1 1 1.06 1.06l-3.549 3.55a.75.75 0 0 1-1.168-.136L.941 4.523z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="font-size-list" class="dropdown-bottom">
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                        <p>14</p>
+                        <p>16</p>
+                        <p>18</p>
+                        <p>20</p>
+                        <p>22</p>
+                        <p>24</p>
+                        <p>26</p>
+                        <p>28</p>
+                        <p>30</p>
+                        <p>32</p>
+                        <p>34</p>
+                        <p>36</p>
+                        <p>38</p>
+                        <p>40</p>
+                        <p>42</p>
+                        <p>44</p>
+                        <p>46</p>
+                        <p>48</p>
+                    </div>
+                </div>
+                <div class="ticon sub-script">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M15.677 8.678h2.549c.254 0 .447.05.58.152a.49.49 0 0 1 .201.413.54.54 0 0 1-.159.393c-.105.108-.266.162-.48.162h-3.594c-.245 0-.435-.066-.572-.197a.621.621 0 0 1-.205-.463c0-.114.044-.265.132-.453a1.62 1.62 0 0 1 .288-.444c.433-.436.824-.81 1.172-1.122.348-.312.597-.517.747-.615.267-.183.49-.368.667-.553.177-.185.312-.375.405-.57.093-.194.139-.384.139-.57a1.008 1.008 0 0 0-.554-.917 1.197 1.197 0 0 0-.56-.133c-.426 0-.761.182-1.005.546a2.332 2.332 0 0 0-.164.39 1.609 1.609 0 0 1-.258.488c-.096.114-.237.17-.423.17a.558.558 0 0 1-.405-.156.568.568 0 0 1-.161-.427c0-.218.05-.446.151-.683.101-.238.252-.453.452-.646s.454-.349.762-.467a2.998 2.998 0 0 1 1.081-.178c.498 0 .923.076 1.274.228a1.916 1.916 0 0 1 1.004 1.032 1.984 1.984 0 0 1-.156 1.794c-.2.32-.405.572-.613.754-.208.182-.558.468-1.048.857-.49.39-.826.691-1.008.906a2.703 2.703 0 0 0-.24.309zM7.03 10.349l3.818-3.819a.8.8 0 1 1 1.132 1.132L8.16 11.48l3.819 3.818a.8.8 0 1 1-1.132 1.132L7.03 12.61l-3.818 3.82a.8.8 0 1 1-1.132-1.132L5.9 11.48 2.08 7.662A.8.8 0 1 1 3.212 6.53l3.818 3.82z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon sup-script">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path
+                            d="m7.03 10.349 3.818-3.819a.8.8 0 1 1 1.132 1.132L8.16 11.48l3.819 3.818a.8.8 0 1 1-1.132 1.132L7.03 12.61l-3.818 3.82a.8.8 0 1 1-1.132-1.132L5.9 11.48 2.08 7.662A.8.8 0 1 1 3.212 6.53l3.818 3.82zm8.147 7.829h2.549c.254 0 .447.05.58.152a.49.49 0 0 1 .201.413.54.54 0 0 1-.159.393c-.105.108-.266.162-.48.162h-3.594c-.245 0-.435-.066-.572-.197a.621.621 0 0 1-.205-.463c0-.114.044-.265.132-.453a1.62 1.62 0 0 1 .288-.444c.433-.436.824-.81 1.172-1.122.348-.312.597-.517.747-.615.267-.183.49-.368.667-.553.177-.185.312-.375.405-.57.093-.194.139-.384.139-.57a1.008 1.008 0 0 0-.554-.917 1.197 1.197 0 0 0-.56-.133c-.426 0-.761.182-1.005.546a2.332 2.332 0 0 0-.164.39 1.609 1.609 0 0 1-.258.488c-.096.114-.237.17-.423.17a.558.558 0 0 1-.405-.156.568.568 0 0 1-.161-.427c0-.218.05-.446.151-.683.101-.238.252-.453.452-.646s.454-.349.762-.467a2.998 2.998 0 0 1 1.081-.178c.498 0 .923.076 1.274.228a1.916 1.916 0 0 1 1.004 1.032 1.984 1.984 0 0 1-.156 1.794c-.2.32-.405.572-.613.754-.208.182-.558.468-1.048.857-.49.39-.826.691-1.008.906a2.703 2.703 0 0 0-.24.309z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="ticon text-none">
+                    <svg class="svg-icon text-none-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M8.69 14.915c.053.052.173.083.36.093a.366.366 0 0 1 .345.485l-.003.01a.738.738 0 0 1-.697.497h-2.67a.374.374 0 0 1-.353-.496l.013-.038a.681.681 0 0 1 .644-.458c.197-.012.325-.043.386-.093a.28.28 0 0 0 .072-.11L9.592 4.5H6.269c-.359-.017-.609.013-.75.09-.142.078-.289.265-.442.563-.192.29-.516.464-.864.464H4.17a.43.43 0 0 1-.407-.569L4.46 3h13.08l-.62 2.043a.81.81 0 0 1-.775.574h-.114a.486.486 0 0 1-.486-.486c.001-.284-.054-.464-.167-.54-.112-.076-.367-.106-.766-.091h-3.28l-2.68 10.257c-.006.074.007.127.038.158zM3 17h8a.5.5 0 1 1 0 1H3a.5.5 0 1 1 0-1zm11.299 1.17a.75.75 0 1 1-1.06-1.06l1.414-1.415-1.415-1.414a.75.75 0 0 1 1.06-1.06l1.415 1.414 1.414-1.415a.75.75 0 1 1 1.06 1.06l-1.413 1.415 1.414 1.415a.75.75 0 0 1-1.06 1.06l-1.415-1.414-1.414 1.414z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="varticle-bar">
+
+                </div>
+                <div class="ticon text-align-left">
+
+                </div>
+                <div class="ticon text-align-center">
+
+                </div>
+                <div class="ticon text-align-right">
+
+                </div>
+                <div class="ticon text-align-justify">
+
+                </div>
+                <div class="varticle-bar">
+
+                </div>
+                <div class="ticon ordered-list">
+
+                </div>
+                <div class="ticon urdered-list">
+
+                </div>
+                <div class="varticle-bar">
+
+                </div>
+                <div class="ticon indent-left">
+
+                </div>
+                <div class="ticon indent-right">
+
+                </div>
+                <div class="varticle-bar">
+
+                </div>
+                <div class="post">POST</div>
+            </div>
+        </div>
+        <div class="content" lang="en" role="textbox" contenteditable="true" spellcheck="true">
+
+        </div>
+    </main>
+    <script>
+        const select_text = document.getElementById("select-text-type");
+        const text_type_list = document.getElementById("text-type-list");
+        const font_size = document.getElementById("font-size");
+        const font_size_list = document.getElementById("font-size-list");
+        const select_font = document.getElementById("select-font");
+        const font_list = document.getElementById("font-list");
+
+        select_text.onclick = function () {
+            if (text_type_list.style.display === "block") {
+                text_type_list.style.display = "none";
+            } else {
+                text_type_list.style.display = "block";
+            }
+        }
+
+        font_size.onclick = function () {
+            if (font_size_list.style.display === "block") {
+                font_size_list.style.display = "none";
+            } else {
+                font_size_list.style.display = "block";
+            }
+        }
+
+        select_font.onclick = function () {
+            if (font_list.style.display === "block") {
+                font_list.style.display = "none";
+            } else {
+                font_list.style.display = "block";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

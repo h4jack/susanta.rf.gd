@@ -1,66 +1,86 @@
-header{
+/* css for the header section */
+
+header {
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0px;
+    text-align: center;
+    height: 60px;
+}
+
+header h1 {
+    margin: 0px;
     padding: 0px;
 }
-/* Style the navigation bar */
-.navbar {
-    width: 100%;
-    min-height: 40px;
-    background-color: #33333350;
+
+.header-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* border: .5px solid #ffffff30;
-    border-bottom-color: aliceblue;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent; */
+    align-items: center;
 }
 
-/* the nav bar in replacement like the full_bar.*/
-.nav_bar_bottom{
-    width: 100%;
-    height: calc(1px);
-    background-color: #ffffff80;
-    box-shadow: 0px 0px 3px gray;
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 25px;
+    }
 }
 
-.navbar .right,
-.navbar .left{
+
+.menu-btn {
+    position: relative;
     display: flex;
-    flex-direction: row;
-}
-
-/* Navbar links */
-.navbar a {
-    display: flex;
-    text-align: center;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin: 0px;
+    cursor: pointer;
+    background-color: transparent;
+    gap: 5px;
 }
 
-/* Navbar links on mouse-over */
-.navbar a:hover {
-    box-shadow: inset 0px 0px 3px white;
-    background-color: #ffffff30;
+.menu-btn.menu-open span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
 }
 
-.profile-name{
-    margin-left: 10px;
-    margin-right: 5px;
+.menu-btn.menu-close {
+    display: none;
 }
 
-@media screen and (max-width: 420px) {
-    .navbar a {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-    }
-    .profile-name{
-        display: none;
-    }
+.menu-btn span {
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
+}
+
+.menu-btn.menu-close span:first-child {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.menu-btn.menu-close span:last-child {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transform: rotate(135deg);
+    position: absolute;
+}
+
+.void {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin: 0px;
 }

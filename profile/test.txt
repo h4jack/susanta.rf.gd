@@ -1,0 +1,7 @@
+sign-in
+sign-up
+
+verify-otp
+forget-password/reset-password
+
+change-email

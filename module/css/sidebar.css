@@ -1,19 +1,23 @@
-
 /* Sidebar Styles */
 .sidebar {
-    flex: 1; /* Takes less space */
+    flex: 1;
+    /* Takes less space */
     margin-left: 20px;
 }
+
 .secondary-navigation ul {
     list-style-type: none;
 }
+
 .secondary-navigation ul li {
     margin-bottom: 10px;
 }
+
 .secondary-navigation ul li a {
     color: #333;
     text-decoration: none;
 }
+
 .widgets {
     margin-top: 20px;
     /* Styles for widgets or tools */
@@ -31,7 +35,7 @@
 
 /* sidebar started */
 
-.side_feed{
+.side_feed {
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -41,22 +45,26 @@
     margin-bottom: 5px;
     color: white;
 }
-.side_feed_img{
+
+.side_feed_img {
     border-radius: 10px;
     width: 100px;
     height: 100px;
 }
-.side_feed_body{
+
+.side_feed_body {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.side_feed_body .title{
+
+.side_feed_body .title {
     font-size: 20px;
     padding-left: 5px;
     padding-right: 5px;
 }
-.side_feed_body .description{
+
+.side_feed_body .description {
     font-size: 15px;
     padding-left: 5px;
     padding-right: 5px;
@@ -64,5 +72,3 @@
 
 
 /* sidebar ended */
-
-

@@ -1,186 +1,177 @@
-.page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-    color: #dddccc;
-}
+ .page-content {
+     display: flex;
+     flex-direction: column;
+     justify-content: top;
+     align-items: center;
+     color: #dddccc;
+ }
 
-.sign_body{
-    height: 100vh;
-    width: 100%;
-    z-index: 100;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #00000070;
-    display: none;
-}
+ .sign_body {
+     height: 100vh;
+     width: 100%;
+     z-index: 100;
+     position: fixed;
+     top: 0px;
+     left: 0px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: #00000070;
+     display: none;
+ }
 
+ .sing_inputs,
+ .sign_form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
 
-.sing_inputs,
-.sign_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+ .sign_form {
+    width: 470px;
+     padding: 30px;
+     border: 1px solid whitesmoke;
+     border-radius: 20px;
+     background-color: #1a1a1afa;
+     background-image: linear-gradient(103deg, #08535820, #1b3f2a10, #320c0c20);
+     box-shadow: 0px 0px 3px white;
+ }
 
-.sign_form {
-    padding: 30px;
-    border: 1px solid whitesmoke;
-    border-radius: 20px;
-    background-color: #1a1a1aee;
-    box-shadow: 0px 0px 3px white;
-}
+ .sign_form:hover {
+     box-shadow: 0px 0px 7px white;
+ }
 
-.sign_form:hover{
-    box-shadow: 0px 0px 7px white;
-}
+ .sing_input_fields {
+     margin-top: 5px;
+     margin-bottom: 5px;
+     padding: 5px;
+     width: 400px;
+     height: 40px;
+     font-size: 18px;
+     background-color: transparent;
+     border: none;
+     /* border-bottom: 3px solid #666666; */
+     border-radius: 4px;
+     box-shadow: 0 0 1px #ffffff;
+     outline: none;
+ }
 
-.sing_input_fields {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    width: 400px;
-    height: 40px;
-    font-size: 18px;
+ input::-ms-reveal {
+     filter: invert(50%);
+ }
+
+ .sign_submit_btn {
+     width: 95px;
+     height: 40px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     /* padding: 8px 12px; */
+     background-color: #4CAF50;
+     font-family: 'Rubik', sans-serif;
+     font-size: 15px;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .checkbox_box {
+     padding: 5px;
+     width: 100%;
+     height: auto;
+     justify-content: left;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     align-content: center;
+ }
+
+  .checkbox {
     background-color: transparent;
-    border: none;
-    border-bottom: 3px solid #666666;
-    border-radius: 4px;
-    box-shadow: 0 0 1px #ffffff;
-    outline: none;
-}
+    border: 2px solid white;
+  }
 
-input::-ms-reveal {
-    filter: invert(50%);
-}
-
-.sign_email,
-.sign_otp {
-    width: 300px;
-}
-
-.otp_btn,
-.sign_submit_btn {
-    width: 95px;
-    height: 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    /* padding: 8px 12px; */
-    background-color: #4CAF50;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-.email_box {
-    display: flex;
-    flex-direction: row;
-}
-
-.email_box_right {
-    width: 300px;
-}
-
-.email_box_left {
-    width: 100px;
-    display: flex;
-    padding-left: 5px;
-    flex-direction: column;
-}
-
-.checkbox_box {
-    padding: 5px;
+ .warning,
+ .error {
     width: 100%;
-    height: auto;
-    justify-content: left;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-}
+    text-align: justify;
+    padding: 3px;
+     display: none;
+     animation: shake 0.5s;
+ }
 
-.error {
-    padding: 5px;
-    color: red;
-    font-weight: bold;
-    animation: shake 0.5s;
-}
+ .error {
+     color: red;
+ }
 
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-}
+ .warning {
+     color: orange;
+ }
 
-#close-sign-box{
-    display: none;
-    height: 40px;
-    width: 40px;
-    padding: 10px;
-    cursor:not-allowed;
-    background-color: #1A1A1Add;
-    background-image: url(/assets/icons/close-white.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border: 1px solid ghostwhite;
-    border-radius: 40px;
-    box-shadow: 0px 0px 2px white;
-}
+ @keyframes shake {
+     0% {
+         transform: translateX(0);
+     }
 
-#close-sign-box:hover{
-    box-shadow: 0px 0px 6px whitesmoke;
-}
+     25% {
+         transform: translateX(-5px);
+     }
 
-.accept_tnc,
-#accept_tnc {
-    height: 20px;
-    margin: 3px;
-}
+     50% {
+         transform: translateX(5px);
+     }
 
-.accept_tnc u{
-    cursor: pointer;
-}
+     75% {
+         transform: translateX(-5px);
+     }
 
-@media (max-width: 500px) {
-    .sing_input_fields {
-        width: 100%;
-    }
+     100% {
+         transform: translateX(0);
+     }
+ }
 
-    .sign_form {
-        width: 90%;
-    }
+ #close-sign-box {
+     display: none;
+     height: 40px;
+     width: 40px;
+     padding: 10px;
+     cursor: not-allowed;
+     background-color: #1A1A1Add;
+     background-image: url(/assets/icons/close-white.svg);
+     background-repeat: no-repeat;
+     background-size: contain;
+     border: 1px solid ghostwhite;
+     border-radius: 40px;
+     box-shadow: 0px 0px 2px white;
+ }
 
-    .sing_inputs {
-        width: 100%;
-    }
+ #close-sign-box:hover {
+     box-shadow: 0px 0px 6px whitesmoke;
+ }
 
-    .email_box {
-        width: 100%;
-    }
+ .accept_tnc,
+ #accept_tnc {
+     height: 20px;
+     margin: 3px;
+ }
 
-    .email_box_right {
-        width: 70%;
-    }
+ .accept_tnc u {
+     cursor: pointer;
+ }
 
-    .email_box_left {
-        width: 30%;
-    }
+ @media (max-width: 500px) {
+     .sing_input_fields {
+         width: 100%;
+     }
 
-    .otp_btn {
-        width: 100%;
-    }
-}
+     .sign_form {
+         width: 90%;
+     }
+
+     .sing_inputs {
+         width: 100%;
+     }
+ }

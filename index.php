@@ -1,6 +1,5 @@
 <?php
 include "./module/html/main.php";
-include "./module/html/sign.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +11,12 @@ include "./module/html/sign.php";
     <title>Welcome to HomePage</title>
     <?php
     $paths = array(
-        "/module/css/main.css",
         "/module/css/header.css",
-        "/module/css/footer.css",
+        "/module/css/main.css",
+        "/module/css/all.css",
+        "/module/css/menubar.css",
         "/module/css/sign_form.css",
+        "/module/css/footer.css",
         "/style.css"
     );
 
@@ -26,15 +27,12 @@ include "./module/html/sign.php";
 
 <body>
     <?php
-    echo print_head("");
+    echo print_head("sdf", "Home");
     ?>
     <!-- Main Content Area -->
     <main>
         <section class="page-content">
-            <?php
-            print_sign_form();
-            ?>
-            <h1>To Build Your Future, You Have To Build Yourself.</h1> 
+            <h1>To Build Your Future, You Have To Build Yourself.</h1>
             <p>I am a Computer Enthusiast. Currently Contributing to Open-Source Projects. Look i am Un-Successful because i only build websites never build my future.. so don't forget this quote. Explore <a href="#explore-products">Contents..</a></p>
             <div class="quick-links">
                 <a href="/b/" class="cta-button">😊 Blogs</a>
@@ -42,7 +40,7 @@ include "./module/html/sign.php";
                 <a href="/tools/" class="cta-button">😍 Tools</a>
             </div>
         </section>
-         <div class="full_bar"></div>    
+        <div class="full-bar some-margin"></div>
         <section id="explore-products" class="explore-products">
             <div class="product">
                 <div class="top">
@@ -105,6 +103,7 @@ include "./module/html/sign.php";
     <?php
     echo print_footer();
     ?>
+    <script src="/module/js/header.js"></script>
 </body>
 
 </html>

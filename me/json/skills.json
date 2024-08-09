@@ -1,0 +1,275 @@
+{
+    "mainSection": {
+        "innerHTML": {
+            "tocBox": {
+                "class": "toc-box",
+                "content": [
+                    {
+                        "tag": "h1",
+                        "text": "Table of Content"
+                    },
+                    {
+                        "tag": "div",
+                        "class": "toc",
+                        "links": [
+                            {
+                                "href": "#skills-pt",
+                                "text": "Programming"
+                            },
+                            {
+                                "href": "#skills-ft",
+                                "text": "FrontEnd"
+                            },
+                            {
+                                "href": "#skills-bt",
+                                "text": "BackEnd"
+                            },
+                            {
+                                "href": "#skills-tt",
+                                "text": "Technology"
+                            },
+                            {
+                                "href": "#skills-sst",
+                                "text": "Soft Skills"
+                            },
+                            {
+                                "href": "#skills-pmt",
+                                "text": "Project Management"
+                            },
+                            {
+                                "href": "#skills-ast",
+                                "text": "Additional Skills"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "sections": [
+                {
+                    "id": "skills-pt",
+                    "title": "Programming",
+                    "skills": [
+                        {
+                            "name": "C Programming",
+                            "level": "Advance",
+                            "percentage": "90%",
+                            "class": "cprogramming"
+                        },
+                        {
+                            "name": "C++",
+                            "level": "Advance",
+                            "percentage": "85%",
+                            "class": "cpp"
+                        },
+                        {
+                            "name": "Python",
+                            "level": "Intermediate",
+                            "percentage": "75%",
+                            "class": "python"
+                        },
+                        {
+                            "name": "Java",
+                            "level": "Intermediate",
+                            "percentage": "60%",
+                            "class": "java"
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-ft",
+                    "title": "FrontEnd",
+                    "skills": [
+                        {
+                            "name": "HTML",
+                            "level": "Advance",
+                            "percentage": "90%",
+                            "class": "html"
+                        },
+                        {
+                            "name": "CSS",
+                            "level": "Intermediate",
+                            "percentage": "75%",
+                            "class": "css"
+                        },
+                        {
+                            "name": "Javascript",
+                            "level": "Intermediate",
+                            "percentage": "70%",
+                            "class": "javascript"
+                        },
+                        {
+                            "name": "ReactJS",
+                            "level": "Beginners",
+                            "percentage": "30%",
+                            "class": "reactjs"
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-bt",
+                    "title": "BackEnd",
+                    "skills": [
+                        {
+                            "name": "PHP",
+                            "level": "Advance",
+                            "percentage": "80%",
+                            "class": "html"
+                        },
+                        {
+                            "name": "NodeJS",
+                            "level": "Intermediate",
+                            "percentage": "70%",
+                            "class": "nodejs"
+                        },
+                        {
+                            "name": "ExpressJS",
+                            "level": "Intermediate",
+                            "percentage": "70%",
+                            "class": "expressjs"
+                        },
+                        {
+                            "name": "SQL",
+                            "level": "Intermediate",
+                            "percentage": "70%",
+                            "class": "sql"
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-tt",
+                    "title": "Technology",
+                    "skills": [
+                        {
+                            "name": "Git",
+                            "level": "Advanced",
+                            "percentage": "70%",
+                            "class": "git",
+                            "description": "Git is a powerful version control system used by developers to manage project work collaboratively. I have been proficient with Git for over 3 years, utilizing platforms such as GitHub and GitLab to streamline development processes and ensure code integrity."
+                        },
+                        {
+                            "name": "Azure Cloud",
+                            "level": "Intermediate",
+                            "description": "Azure is a nice and easy cloud service with many free features, i have 1years + of experience using Azure Cloud, have hosted servers, used Ai, ML, Database, Api's etc.."
+                        },
+                        {
+                            "name": "Docker",
+                            "level": "Intermediate",
+                            "description": "Docker is a containerization platform that simplifies application deployment and management. I have hands-on experience with Docker, deploying and optimizing containerized applications in development and production environments, enhancing scalability and efficiency."
+                        },
+                        {
+                            "name": "Redis",
+                            "level": "Intermediate",
+                            "description": "Redis is an advanced key-value store that enables fast data retrieval and caching, improving application performance significantly. I have utilized Redis for caching and data storage solutions, leveraging its capabilities to optimize response times and enhance user experience effectively."
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-sst",
+                    "title": "Soft Skills",
+                    "skills": [
+                        {
+                            "name": "Communication",
+                            "description": "Communication is essential for conveying ideas clearly and building strong relationships. I excel in both written and verbal communication, ensuring effective interaction with diverse audiences."
+                        },
+                        {
+                            "name": "Teamwork",
+                            "description": "Teamwork is crucial for achieving collective goals and fostering a collaborative environment. I thrive in team settings, contributing positively to group dynamics and achieving shared objectives."
+                        },
+                        {
+                            "name": "Problem Solving",
+                            "description": "Problem Solving is the art of thinking critically and analyzing complex issues. I possess strong problem-solving skills, adept not only in coding challenges but also in real-world problem-solving scenarios."
+                        },
+                        {
+                            "name": "Adaptability",
+                            "description": "Adaptability is key to thriving in dynamic environments and embracing change. I demonstrate flexibility in adapting to new situations and effectively adjusting strategies to meet evolving demands."
+                        },
+                        {
+                            "name": "Time Management",
+                            "description": "Time Management is essential for prioritizing tasks and meeting deadlines efficiently. I possess strong time management skills, ensuring optimal productivity and timely completion of projects."
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-pmt",
+                    "title": "Project Management",
+                    "skills": [
+                        {
+                            "name": "Software Engineering",
+                            "description": "As a software engineer, I have developed and deployed robust applications using C++, PHP, and JavaScript, Python. My experience includes leading a team of developers to deliver a customer management system that improved client satisfaction by 30%."
+                        },
+                        {
+                            "name": "Database Management",
+                            "description": "Proficient in SQL, I have designed and optimized databases for multiple projects, reducing query response time by 40% and enhancing data security measures."
+                        },
+                        {
+                            "name": "Network Administration",
+                            "description": "In network administration, I have successfully implemented scalable solutions that improved network uptime and security, ensuring seamless operations across multiple locations."
+                        }
+                    ]
+                },
+                {
+                    "id": "skills-ast",
+                    "title": "Additional Skills",
+                    "skills": [
+                        {
+                            "name": "Operating Systems",
+                            "description": "Proficient in various operating systems including Windows, macOS, and Linux distributions, adept at system configuration and troubleshooting to support diverse user and organizational needs."
+                        },
+                        {
+                            "name": "Object-Oriented Programming (OOP)",
+                            "description": "Skilled in designing and implementing object-oriented solutions using languages such as Java and Python, leveraging encapsulation, inheritance, and polymorphism to develop robust and scalable applications."
+                        },
+                        {
+                            "name": "Computer Networks",
+                            "description": "Knowledgeable in computer network architecture, protocols, and security, with experience configuring routers, switches, and firewalls to optimize network performance and ensure data integrity."
+                        },
+                        {
+                            "name": "Data Structures and Algorithms",
+                            "description": "Proficiency in implementing efficient data structures and algorithms in programming tasks, optimizing performance and solving complex computational problems in software development and algorithm design."
+                        },
+                        {
+                            "name": "Teaching",
+                            "description": "Experienced in designing and delivering educational materials, facilitating learning through effective communication and engagement strategies, tailored to diverse student needs and learning styles."
+                        },
+                        {
+                            "name": "SEO (Search Engine Optimization)",
+                            "description": "Proficient in SEO strategies and techniques, optimizing website content and structure to enhance visibility and ranking in search engine results, driving organic traffic and improving online presence."
+                        },
+                        {
+                            "name": "Full Stack Development",
+                            "description": "Skilled in developing both frontend and backend components of web applications, proficient in MERN (MongoDB, Express.js, React.js, Node.js) and MEAN (MongoDB, Express.js, Angular, Node.js) stacks, ensuring seamless integration and functionality."
+                        },
+                        {
+                            "name": "LEMP Stack",
+                            "description": "Experienced in LEMP (Linux, Nginx, MySQL/MariaDB, PHP) stack development, deploying and maintaining dynamic web applications with high performance and reliability, leveraging server-side scripting and database management."
+                        },
+                        {
+                            "name": "Web Development",
+                            "description": "Skilled in frontend (HTML, CSS, JavaScript) and backend (Node.js, PHP, Python) web development, designing responsive and user-friendly interfaces, integrating APIs, and ensuring cross-browser compatibility and accessibility."
+                        },
+                        {
+                            "name": "Scripting",
+                            "description": "Proficient in scripting languages such as Bash, Python, and PowerShell, automating tasks and system administration processes to enhance efficiency and scalability in IT operations."
+                        },
+                        {
+                            "name": "Cyber Security",
+                            "description": "Knowledgeable in cybersecurity principles and best practices, implementing proactive measures to protect networks, systems, and data from unauthorized access, vulnerabilities, and cyber threats."
+                        },
+                        {
+                            "name": "Risk Management",
+                            "description": "Skilled in identifying, assessing, and mitigating risks associated with project management and business operations, developing risk management strategies to minimize potential impact and ensure project success."
+                        },
+                        {
+                            "name": "Documentation",
+                            "description": "Proficient in creating comprehensive documentation for technical projects, including requirements analysis, system specifications, user manuals, and API documentation, ensuring clarity and usability for stakeholders and end-users."
+                        },
+                        {
+                            "name": "Information Gathering & Requirement Analysis",
+                            "description": "Proficient in gathering and analyzing requirements for software development projects, conducting stakeholder interviews, and documenting functional and non-functional requirements to guide project planning and implementation."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
