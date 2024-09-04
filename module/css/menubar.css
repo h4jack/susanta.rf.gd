@@ -1,0 +1,177 @@
+.sidebar {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: auto;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    z-index: 100;
+    background-color: #000000aa;
+    animation: slideIn 0.3s forwards;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    background-color: #222228;
+    background-image: linear-gradient(45deg, rgba(67, 0, 0, 0.029), rgba(3, 76, 57, 0.089), rgba(34, 11, 71, 0.171));
+    width: 200px;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 20px;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+/* The entire scrollbar */
+.sidebar-items::-webkit-scrollbar {
+    width: 6px;
+    /* Width of the scrollbar */
+    height: 6px;
+    /* Height of the scrollbar (for horizontal scrollbar) */
+}
+
+/* The draggable part of the scrollbar */
+.sidebar-items::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, rgba(3, 76, 57, 1), rgb(54, 90, 80));
+    /* Color of the scrollbar thumb */
+    border-radius: 6px;
+    /* Roundness of the scrollbar thumb */
+}
+
+/* The part of the scrollbar not filled by the thumb */
+.sidebar-items::-webkit-scrollbar-track {
+    background: transparent;
+    /* Color of the scrollbar track */
+    border-radius: 6px;
+    /* Roundness of the scrollbar track */
+}
+
+/* The part of the scrollbar when you hover over it */
+.sidebar-items::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgb(65, 179, 148), rgb(54, 90, 80));
+    /* Color of the scrollbar thumb on hover */
+}
+
+.menu-profile-box,
+.menu-items {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.menu-profile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.profile-image {
+    width: 100px;
+    height: auto;
+    background-color: transparent;
+    margin-left: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 90%;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.menu-profile-box:hover {
+    filter: drop-shadow(0px 0px 5px gray);
+}
+
+.profile-name:hover,
+.menu-items:hover {
+    filter: drop-shadow(0px 0px 10px gray);
+    text-decoration: none;
+}
+
+.menu-items {
+    padding: 10px 0px;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+
+
+.menu-items-text {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+    color: white;
+    background-color: transparent;
+}
+
+.menu-item-break-bar {
+    width: auto;
+    height: 0;
+    background-color: gray;
+    padding: 1px;
+    margin-left: 20px;
+}
+
+.menu-heading-line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px gray;
+}
+
+
+
+.bar-start-heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+}
+
+.bar-start-heading p {
+    padding: 5px;
+    font-size: 10px;
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+    border: 2px solid white;
+    border-left: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.sidebar-close {
+    width: 100%;
+    height: 100%;
+}

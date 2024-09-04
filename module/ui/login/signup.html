@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/module/css/login/login.css">
+<div class="login-box">
+    <form class="login-form" action="" method="get">
+        <h1 style="font-size:30px;">Sign Up</h1>
+        <p class="typing-text" style="padding: 0px 20px;">Welcome to our Family, this is going to be simple
+            and easy process. Just fill the fields and be a member of this happy family.</p>
+        <div class="input-box name-box">
+            <p class="input-label">Full Name (Optional)</p>
+            <p class="warning name-error" id="name-error">[Worning] more then 50 characters not allowed.</p>
+            <input title="Please enter your full name" type="text" name="name" id="input-name" maxlength="60"
+                placeholder="Enter your Full Name." autofocus>
+        </div>
+        <div class="input-box email-box">
+            <p class="input-label">Email Address (*)</p>
+            <p class="error email-error" id="email-error">[Error] make sure the Email Address you entered is
+                valid..</p>
+            <input title="please enter your email address. opt will be sent to this." type="email" name="email"
+                id="input-email" placeholder="Enter your Email Address." autocomplete="off" required>
+        </div>
+        <div class="input-box phone-box">
+            <p class="input-label">Phone Number (Optional)</p>
+            <p class="warning phone-error" id="phone-error">[Error] Not a Valid Phone Number. format should
+                be {+91 1234123412}</p>
+            <input type="text" name="phone" id="input-phone" placeholder="Enter your Phone Number.">
+        </div>
+        <div class="input-box username-box">
+            <p class="input-label">Username (*)</p>
+            <p class="positive uname-error" style="display: block;" id="uname-error">[~] username should
+                start with lowercase, and can contain number, underscore, and [.]'s only.</p>
+            <input type="text" name="username" id="input-uname" placeholder="Enter your username." autocomplete="off"
+                required>
+        </div>
+        <div class="input-box password-box">
+            <p class="input-label">Password (*)</p>
+            <p class="error pass-error" id="pass-error">[Warning.</p>
+            <input type="password" name="pass" id="input-pass" placeholder="Enter your new Password." autocomplete="off"
+                required>
+        </div>
+        <div class="input-box vpassword-box">
+            <p class="input-label">Verify Password (*)</p>
+            <p class="error vpass-error" id="vpass-error">[Error] password is not same. it is invalid.</p>
+            <input type="password" name="vpass" id="input-vpass" placeholder="Vefiry your Password." autocomplete="off"
+                required>
+        </div>
+
+
+        <div class="input-box dob-box">
+            <p class="input-label">Date of Birth (*)</p>
+            <p class="error vpass-error" id="vpass-error">date is not valid.</p>
+            <div class="dob-select-box">
+
+                <select class="dob-select day-select" name="day" id="day" title="Day" required>
+
+                </select>
+                <select class="dob-select month-select" name="month" id="month" title="Month" disabled required>
+
+                </select>
+                <select class="dob-select year-select" name="year" id="year" title="Year" disabled required>
+
+                </select>
+            </div>
+        </div>
+        <div class="input-box gender-box">
+            <p class="input-label">Gender (*)</p>
+            <div class="gender-select-box">
+                <div class="gender-card" title="Select if you are Male" id="male-card">
+                    <p>Male</p>
+                    <input placeholder="Male" title="Select if you are Male" type="radio" name="gender" value="Male">
+                </div>
+                <div class="gender-card" title="Select if you are Female" id="female-card">
+                    <p>Female</p>
+                    <input placeholder="Female" title="Select if you are Female" type="radio" name="gender"
+                        value="Female">
+                </div>
+                <div class="gender-card" title="Select If you want to hide your Gender Status" id="hide-card">
+                    <p>Hide Me</p>
+                    <input placeholder="Hide Gender" title="Select If you want to hide your Gender Status"
+                        class="active" type="radio" name="gender" value="Nobody" checked>
+                </div>
+            </div>
+        </div>
+        <div class="submit-box">
+            <p style="font-size: 13px; padding: 10px 10%;">By clicking Sign Up, you agree to our <a
+                    href="/rules/terms">Terms</a> and <a href="/rules/privacypolicy">Privacy Policy</a>. You
+                may receive email otp for email varification so enter a valid email.</p>
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="login-option">
+        <p>Already have an account? <a href="/profile/login">Sign In</a></p>
+    </div>
+</div>
+
+<script type="module" src="/module/js/login/signup.js"></script>

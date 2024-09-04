@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/module/css/login/login.css">
+<style>
+    .page-content {
+        justify-content: center;
+    }
+</style>
+<div class="login-box">
+    <form class="login-form" action="" method="post">
+        <h1 style="font-size:30px;">Login</h1>
+        <div class="input-box username-box">
+            <p class="input-label">Username/Email/Phone (*)</p>
+            <p class="positive uname-error">[~] username is not available.</p>
+            <input type="text" name="username" id="input-loginid" placeholder="Enter your username, email, or phone."
+                autocomplete="off" required>
+        </div>
+        <div class="input-box password-box">
+            <p class="input-label">Password (*)</p>
+            <p class="error pass-error" id="pass-error">[Warning.</p>
+            <input type="password" name="pass" id="input-pass" placeholder="Enter your new Password." autocomplete="off"
+                required>
+        </div>
+        <div class="submit-box">
+            <p style="font-size: 13px; padding: 0px 10px; text-align: start;">Can't Sign In, <a href="">need help</a>.
+            </p>
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="login-option">
+        <p>Don't have an account? <a href="/profile/signup">Create Account.</a></p>
+    </div>
+</div>
+
+<script type="module" src="/module/js/login/signin.js"></script>

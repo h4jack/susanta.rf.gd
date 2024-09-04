@@ -1,0 +1,127 @@
+/* css for the header section */
+
+header {
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0px;
+    text-align: center;
+    height: 60px;
+}
+
+header h1 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-top h1{
+    text-wrap: nowrap;
+    transition: font-size 1s;
+}
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 25px;
+    }
+}
+
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin: 0px;
+    cursor: pointer;
+    background-color: transparent;
+    gap: 5px;
+}
+
+.menu-btn.menu-open span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.menu-btn.menu-close {
+    display: none;
+}
+
+.menu-btn span {
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
+}
+
+.menu-btn.menu-close span:first-child {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.menu-btn.menu-close span:last-child {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transform: rotate(135deg);
+    position: absolute;
+}
+
+.header-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    gap: 10px;
+}
+
+.header-sign-in{
+    font-size: 20px;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(17, 150, 62);
+    color: white;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-sign-in:hover{
+    box-shadow: 0px 0px 10px white;
+    text-decoration: none;
+    color: rgb(140, 20, 22);
+}
+
+.header-sign-in:visited{
+    color: white;
+}
+
+.void {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin: 0px;
+}
